@@ -307,8 +307,9 @@ height: 100vh;
     }
 
     .invisible {
-      visibility: hidden;
-    }
+      opacity: 0 !important;
+      animation-fill-mode:none !important;
+        }
 
     @keyframes flip {
       0% {
@@ -366,7 +367,7 @@ height: 100vh;
   <h1 class="logo" >Two Tweets<br><br>& A Lie</h1>
   <h2 v-if="!gameStart" v-bind:class="{'invisible' : demoDone }">A card game for people into unhinged, nutty, and mental tweets.</h2>
   <h3 v-if="!gameStart" v-bind:class="{'invisible' : demoDone }">Want to play a few rounds?</h3>
-  <h3 v-if="gameStart" style="margin-top:13vh;" v-bind:class="{'invisible' : demoDone }">Choose the Lie</h3>
+  <h3 v-if="gameStart" style="margin-top: 15vh;margin-bottom: 0px;" v-bind:class="{'invisible' : demoDone }">Choose the Lie</h3>
   <div class="cards" v-if="!isMobile() || gameStart">
     <div class="cardHolder" v-for="(tweet, tindex) in sets[idx].tweets" v-if="!demoDone">
     <div class="card"  v-on:click="show()" v-bind:class="{'forceNormal' : shown, 'doubleflipOut' : doubleflipOut, 'doubleflipIn' : doubleflipIn}">
