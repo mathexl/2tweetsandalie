@@ -296,7 +296,7 @@ height: 100vh;
       }
 
       .invisible {
-        visibility: none;
+        visibility: hidden;
       }
 
       body h4{
@@ -357,7 +357,7 @@ height: 100vh;
 </head>
 <body>
   <div id="cards">
-  <h1 class="logo" v-bind:class="{'invisible' : demoDone }">Two Tweets<br><br>& A Lie</h1>
+  <h1 class="logo" >Two Tweets<br><br>& A Lie</h1>
   <h2 v-if="!gameStart" v-bind:class="{'invisible' : demoDone }">A card game for people into unhinged, nutty, and mental tweets.</h2>
   <h3 v-if="!gameStart" v-bind:class="{'invisible' : demoDone }">Want to play a few rounds?</h3>
   <h3 v-if="gameStart" style="margin-top:13vh;" v-bind:class="{'invisible' : demoDone }">Choose the Lie</h3>
