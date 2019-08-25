@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="https://cdn.rawgit.com/mfd/f3d96ec7f0e8f034cc22ea73b3797b59/raw/856f1dbb8d807aabceb80b6d4f94b464df461b3e/gotham.css">
   <link rel="icon" href="./favicon.ico">
+  <title>Two Tweets And A Lie</title>
   <meta property="og:url"                content="https://twotweetsandalie.com" />
   <meta property="og:type"               content="website" />
   <meta property="og:title"              content="Two Tweets And A Lie" />
@@ -182,9 +183,16 @@ height: 100vh;
       height: 18px;
       font-weight: 600;
       color:black;
-      font-size:14px;
+      font-size:12px;
       margin-top: 6px;
       font-family: "GothamPro","Gothamic", Helvetica, Arial;
+    }
+
+    .cards > div > .card > .info > .name > img {
+        height: 14px;
+        margin-top: -4px;
+        margin-bottom: -3px;
+        margin-left: 2px;
     }
 
     .cards > div > .card > .info > .handle{
@@ -371,14 +379,14 @@ height: 100vh;
   <div id="cards">
   <h1 class="logo" >Two Tweets<br><br>& A Lie</h1>
   <h2 v-if="!gameStart" v-bind:class="{'invisible' : demoDone }">A card game for people into unhinged, nutty, and mental tweets.</h2>
-  <h3 v-if="!gameStart" v-bind:class="{'invisible' : demoDone }">Want to play a few rounds?</h3>
+  <h3 v-if="!gameStart" v-bind:class="{'invisible' : demoDone }">Want to play a few rounds? Guess which of these Tweets is false.</h3>
   <h3 v-if="gameStart" style="margin-top: 15vh;margin-bottom: 0px;" v-bind:class="{'invisible' : demoDone }">Choose the Lie</h3>
   <div class="cards" v-if="!isMobile() || gameStart">
     <div class="cardHolder" v-for="(tweet, tindex) in sets[idx].tweets" v-if="!demoDone">
     <div class="card"  v-on:click="show()" v-bind:class="{'forceNormal' : shown, 'doubleflipOut' : doubleflipOut, 'doubleflipIn' : doubleflipIn}">
-      <img v-bind:src="'./' + (idx + 1) + '.png'">
+      <img v-bind:src="'./' + (idx + 1) + '.png?v=2'">
       <div class="info">
-        <div class="name">{{sets[idx].name}}</div>
+        <div class="name">{{sets[idx].name}}<img src="./verified.png"></div>
         <div class="handle">{{sets[idx].handle}}</div>
       </div>
       <div class="tweet">
