@@ -39,6 +39,16 @@ height: 100vh;
       width: 400px;
     }
 
+    body .twitter{
+      display: inline-block;
+      right: 18px;
+      position: absolute;
+      top: 18px;
+      color: white;
+      text-decoration: none;
+      font-size: 14px;
+    }
+
     body  h2{
       color:white;
       display: inline-block;
@@ -378,6 +388,7 @@ height: 100vh;
 <body>
   <div id="cards">
   <h1 class="logo" >Two Tweets<br><br>& A Lie</h1>
+  <a class="twitter" href="https://twitter.com/TwoTweetsGame">Follow Us On Twitter</a>
   <h2 v-if="!gameStart" v-bind:class="{'invisible' : demoDone }">A card game for people into unhinged, nutty, and mental tweets.</h2>
   <h3 v-if="!gameStart" v-bind:class="{'invisible' : demoDone }">Want to play a few rounds? Guess which of these Tweets is false.</h3>
   <h3 v-if="gameStart" style="margin-top: 15vh;margin-bottom: 0px;" v-bind:class="{'invisible' : demoDone }">Choose the Lie</h3>
