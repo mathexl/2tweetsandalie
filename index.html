@@ -319,7 +319,9 @@ height: 100vh;
       }
 
 
-
+      body h3 span{
+        display:none;
+      }
 
 
       body h4{
@@ -394,7 +396,7 @@ height: 100vh;
   <h1 class="logo" >Two Tweets<br><br>& A Lie</h1>
   <a class="twitter" href="https://twitter.com/TwoTweetsGame">Follow Us On Twitter</a>
   <h2 v-if="!gameStart" v-bind:class="{'invisible' : demoDone }">A card game for people into unhinged, nutty, and mental tweets.</h2>
-  <h3 v-if="!gameStart" v-bind:class="{'invisible' : demoDone }">Want to play a few rounds? Guess which of these Tweets is false.</h3>
+  <h3 v-if="!gameStart" v-bind:class="{'invisible' : demoDone }">Want to play a few rounds? <span>Guess which of these Tweets is false.</span></h3>
   <h3 v-if="gameStart" style="margin-top: 15vh;margin-bottom: 0px;" v-bind:class="{'invisible' : demoDone }">Choose the Lie</h3>
   <div class="cards" v-if="!isMobile() || gameStart">
     <div class="cardHolder" v-for="(tweet, tindex) in sets[idx].tweets" v-if="!demoDone">
