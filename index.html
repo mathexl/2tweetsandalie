@@ -426,7 +426,8 @@ height: 100vh;
     display: none;
 }
 
-    div#mc_embed_signup  input[type='submit']{    width: 90px;
+div#mc_embed_signup input[type='submit'] {
+    width: 90px;
     height: 30px;
     display: inline-block;
     box-sizing: border-box;
@@ -434,7 +435,17 @@ height: 100vh;
     color: white;
     border: 2px white solid;
     outline: none;
-    font-size: 13px;}
+    font-size: 13px;
+    min-width: 90px;
+    margin-left: 11px;
+    margin-right: 11px;
+}
+
+div#mc_embed_signup input[type='submit']:hover {
+  background-color:white;
+  color:#00aced;
+  cursor: pointer;
+}
 
 
   </style>
