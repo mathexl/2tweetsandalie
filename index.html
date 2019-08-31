@@ -150,6 +150,10 @@ height: 100vh;
 
     }
 
+    .cards > div > .card.invisible {
+      visibility: hidden;
+    }
+
     .cards > div > .card.doubleflipOut {
       animation: doubleflipOut 1s 1;
     }
@@ -400,30 +404,42 @@ height: 100vh;
         width: 100%;
         display: inline-block;
         position: fixed;
-        bottom: 10px;
+        bottom: 0px;
         left: 0px;
-        height: 80px;
+        height: 74px;
     }
 
   .mc-field-group {
     text-align: center;
 }
 
-    div#mc_embed_signup  input {
-  height: 30px;
+div#mc_embed_signup input {
+    height: 40px;
     width: 50%;
     min-width: 300px;
     background-color: transparent;
-    color: white;
+    /* color: white; */
     text-align: center;
     outline: none;
     border: none;
     font-size: 18px;
     border-bottom: 4px white solid;
+    border-radius: 3px;
+    background-color: white;
+    color: #00aced;
+    /* border: 3px grey solid; */
+    box-shadow: 5px 5px 1px rgba(0,0,0,.2);
+}
+
+div#mc_embed_signup .text{
+  font-size: 11px;
+text-align: left;
+margin-left: calc(25% - 49px);
+margin-bottom:4px;
 }
 
 div#mc_embed_signup  input::placeholder {
-  color:white;
+  color:#00acedcc;
   opacity:.7;
 }
 
@@ -463,26 +479,38 @@ div#mc_embed_signup input[type='submit']:hover {
   <div id="cards">
   <h1 class="logo" >Two Tweets<br><br>& A Lie</h1>
   <a class="twitter" href="https://twitter.com/TwoTweetsGame">Follow Us On Twitter</a>
-  <h2 v-if="!gameStart" v-bind:class="{'invisible' : demoDone }">A card game for people into unhinged, nutty, and mental tweets.</h2>
-  <h3 v-if="!gameStart" v-bind:class="{'invisible' : demoDone }">Want to play a few rounds? <span>Guess which of these Tweets is false.</span></h3>
+  <h2 v-if="!gameStart" >A card game for people into unhinged, nutty, and mental tweets.</h2>
+  <h3 v-if="!gameStart && !demoDone" v-bind:class="{'invisible' : demoDone }">Want to play a few rounds? <span>Guess which of these Tweets is false.</span></h3>
+  <h3 v-if="!gameStart && demoDone" v-bind:class="{'invisible' : !demoDone }" >Alright, that's all for now kids.</h3>
+
   <h3 v-if="gameStart" style="margin-top: 15vh;margin-bottom: 0px;" v-bind:class="{'invisible' : demoDone }">Choose the Lie</h3>
   <div class="cards" v-if="!isMobile() || gameStart">
-    <div class="cardHolder" v-for="(tweet, tindex) in sets[idx].tweets" v-if="!demoDone">
-    <div class="card"  v-on:click="show()" v-bind:class="{'forceNormal' : shown, 'doubleflipOut' : doubleflipOut, 'doubleflipIn' : doubleflipIn}">
-      <img v-bind:src="'./' + (idx + 1) + '.png?v=2'">
+    <div class="cardHolder" v-for="(tweet, tindex) in sets[idx].tweets" >
+    <div class="card"  v-on:click="show()" v-bind:class="{'forceNormal' : shown, 'doubleflipOut' : doubleflipOut, 'doubleflipIn' : doubleflipIn, 'invisible' : demoDone && tindex % 2 == 0 }">
+      <img v-bind:src="!demoDone ? ('./' + (idx + 1) + '.png?v=2') : './logo.png'">
       <div class="info">
-        <div class="name">{{sets[idx].name}}<img src="./verified.png"></div>
-        <div class="handle">{{sets[idx].handle}}</div>
+        <div class="name" v-if="!demoDone">{{sets[idx].name}}<img src="./verified.png"></div>
+        <div class="name" v-else>Two Tweets<img src="./verified.png"></div>
+        <div class="handle" v-if="!demoDone">{{sets[idx].handle}}</div>
+        <div class="handle" v-else v-on:click="goToTwitter()">@TwoTweetsGame</div>
+
       </div>
-      <div class="tweet">
+      <div class="tweet" v-if="!demoDone">
         {{tweet.text}}
+      </div>
+      <div class="tweet" v-else>
+        Buy our game motherfucker. Subscribe to the waitlist below.
       </div>
       <div class="badge true" v-if="tweet.real && shown">True</div>
       <div class="badge false" v-if="!tweet.real && shown">False</div>
 
     </div>
     </div>
-    <h4 v-if="demoDone" class="starter">Want to play more? Subscribe to our waitlist below.</h4>
+
+
+
+
+    <h4 v-if="demoDone && 4 == 5" class="starter">Want to play more? Subscribe to our waitlist below.</h4>
 
 
   </div>
@@ -491,11 +519,12 @@ div#mc_embed_signup input[type='submit']:hover {
 
   <!-- Begin Mailchimp Signup Form -->
   <div id="mc_embed_signup">
-  <form action="https://parsegon.us3.list-manage.com/subscribe/post?u=3e5cfbb64cc267c8db47d5fe9&amp;id=47d14a467c" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
+  <form autocomplete="off" action="https://parsegon.us3.list-manage.com/subscribe/post?u=3e5cfbb64cc267c8db47d5fe9&amp;id=47d14a467c" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
       <div id="mc_embed_signup_scroll">
   <div class="mc-field-group">
+    <div class="text">WANT OUR GAME? SHOOT US YOUR EMAIL</div>
   	<label for="mce-EMAIL">Email Address </label>
-  	<input type="email" value="" name="EMAIL" placeholder="jack@dorsey.com" class="required email" id="mce-EMAIL">
+  	<input autocomplete="off" type="email" value="" name="EMAIL" placeholder="jack@dorsey.com" class="required email" id="mce-EMAIL">
     <input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="button">
   </div>
   	<div id="mce-responses" class="clear">
@@ -565,10 +594,12 @@ div#mc_embed_signup input[type='submit']:hover {
             setTimeout(function(){
               if(cards.idx == 2){
                 cards.demoDone = true;
-                return;
+
+              } else {
+                cards.idx++;
               }
 
-              cards.idx++;
+
               cards.doubleflipIn = true;
               cards.doubleflipOut = false;
 
@@ -582,6 +613,9 @@ div#mc_embed_signup input[type='submit']:hover {
             else {
                 return false;
             }
+        },
+        goToTwitter: function(){
+          window.location = "https://twitter.com/TwoTweetsGame";
         }
       }
     })
