@@ -558,6 +558,24 @@ div#mc_embed_signup input[type='submit']:hover {
 
 }
 
+
+@keyframes notifInTop {
+  0% {
+    opacity:0;
+    top:-90px;
+  }
+
+  70% {
+    opacity:1;
+  }
+
+  100% {
+    top: 20px;
+    opacity:1;
+  }
+
+}
+
 .notification {
     width: 300px;
     height: 64px;
@@ -575,6 +593,53 @@ opacity:0;
     animation: notifIn .6s 1 ease;
     animation-fill-mode: forwards;
     animation-delay: 4s;
+}
+
+@media screen and (max-width: 700px){
+  .notification {
+      width: calc(100vw - 40px);
+      z-index:300;
+      animation: notifInTop .6s 1 ease;
+      animation-fill-mode: forwards;
+      animation-delay: 4s;
+      right:20px;
+
+    }
+
+  div#mc_embed_signup {
+    width: 100%;
+    display: inline-block;
+    position: fixed;
+    bottom: 0px;
+    left: 0px;
+    height: 74px;
+    animation: fadein 1s 1;
+    animation-fill-mode: forwards;
+    animation-delay: 2.4s;
+    opacity: 0;
+    background-color: black;
+    z-index: 300;
+  }
+
+
+  div#mc_embed_signup input {
+
+      color: #black;
+      /* border: 3px grey solid; */
+  }
+
+  div#mc_embed_signup .text{
+    font-size: 11px;
+  text-align: left;
+  margin-left: calc(25% - 49px);
+  margin-bottom:4px;
+  opacity:0;
+  }
+
+  div#mc_embed_signup  input::placeholder {
+    color:#000000cc;
+    opacity:.7;
+  }
 }
 
 .notification > .logo {
@@ -673,7 +738,7 @@ opacity:0;
     <div class="text">WANT OUR GAME? SHOOT US YOUR EMAIL</div>
   	<label for="mce-EMAIL">Email Address </label>
   	<input autocomplete="off" type="email" value="" name="EMAIL" placeholder="jack@dorsey.com" class="required email" id="mce-EMAIL">
-    <input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="button">
+    <input type="submit" value="Get Updates" name="subscribe" id="mc-embedded-subscribe" class="button">
   </div>
   	<div id="mce-responses" class="clear">
   		<div class="response" id="mce-error-response" style="display:none"></div>
