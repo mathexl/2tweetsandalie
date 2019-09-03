@@ -458,11 +458,11 @@ div#mc_embed_signup input {
     box-shadow: 5px 5px 1px rgba(0,0,0,.2);
 }
 
-div#mc_embed_signup .text{
-  font-size: 11px;
-text-align: left;
-margin-left: calc(25% - 49px);
-margin-bottom:4px;
+div#mc_embed_signup .text {
+    font-size: 15px;
+    text-align: center;
+    /* margin-left: calc(25% - 49px); */
+    margin-bottom: 5px;
 }
 
 div#mc_embed_signup  input::placeholder {
@@ -715,6 +715,12 @@ opacity:0;
     margin-top: 2px;
 }
 
+div#mc_embed_signup.moved {
+
+    bottom: 40vh;
+
+}
+
   </style>
 
 <!--
@@ -740,7 +746,7 @@ opacity:0;
   <h3 v-if="gameStart" style="margin-top: 15vh;margin-bottom: 0px;" class="pushOnMobile" v-bind:class="{'invisible' : demoDone }">Choose the Lie</h3>
   <div class="cards" v-if="!isMobile() || gameStart">
     <div class="cardHolder" v-for="(tweet, tindex) in sets[idx].tweets" >
-    <div class="card"  v-on:click="show()" v-bind:class="{'forceNormal' : shown, 'doubleflipOut' : doubleflipOut, 'doubleflipIn' : doubleflipIn, 'invisible' : demoDone && tindex % 2 == 0 }">
+    <div class="card"  v-on:click="show()" v-bind:class="{'forceNormal' : shown, 'doubleflipOut' : doubleflipOut, 'doubleflipIn' : doubleflipIn, 'invisible' : demoDone  }">
       <img v-bind:src="!demoDone ? ('./' + (idx + 1) + '.png?v=2') : './logo.png'">
       <div class="info">
         <div class="name" v-if="!demoDone">{{sets[idx].name}}<img src="./verified.png"></div>
@@ -772,7 +778,7 @@ opacity:0;
 
 
   <!-- Begin Mailchimp Signup Form -->
-  <div id="mc_embed_signup">
+  <div id="mc_embed_signup" v-bind:class="{'moved' : demoDone}">
   <form autocomplete="off" action="https://parsegon.us3.list-manage.com/subscribe/post?u=3e5cfbb64cc267c8db47d5fe9&amp;id=47d14a467c" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
       <div id="mc_embed_signup_scroll">
   <div class="mc-field-group">
