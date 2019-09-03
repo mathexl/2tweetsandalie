@@ -747,6 +747,9 @@ opacity:0;
   <h3 v-if="!gameStart && demoDone" v-bind:class="{'invisible' : !demoDone }" >Alright, that's all for now kids.</h3>
 
   <h3 v-if="gameStart" style="margin-top: 15vh;margin-bottom: 0px;" class="pushOnMobile" v-bind:class="{'invisible' : demoDone }">Choose the Lie</h3>
+  <h3 v-if="gameStart && isMobile()" v-bind:class="{'invisible' : !demoDone }">That's all for now kids.
+  We are releasing our game very soon! Enter your email below to know about it first (and just maybe get a discount).</h3>
+
   <div class="cards" v-if="!isMobile() || gameStart">
     <div class="cardHolder" v-for="(tweet, tindex) in sets[idx].tweets" >
     <div class="card"  v-on:click="show()" v-bind:class="{'forceNormal' : shown, 'doubleflipOut' : doubleflipOut, 'doubleflipIn' : doubleflipIn, 'invisible' : demoDone  }">
