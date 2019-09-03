@@ -37,6 +37,7 @@ height: 100vh;
       display: inline-block;
       width:100%;
       line-height: 17px;
+      font-family: "GothamBold";
       position:absolute;
       top:2px;
       left:20px;
@@ -51,6 +52,7 @@ height: 100vh;
       color: white;
       text-decoration: none;
       font-size: 14px;
+      display: none;
     }
 
     body  h2{
@@ -395,8 +397,28 @@ height: 100vh;
     }
 
     @font-face {
+      font-family: 'HN';
+      src: url('./hn.woff') format('woff'); /* Super Modern Browsers */
+    }
+
+    @font-face {
+      font-family: 'HNB';
+      src: url('./hnb.woff') format('woff'); /* Super Modern Browsers */
+    }
+
+    @font-face {
       font-family: 'Gothamic';
       src: url('./Gotham-Book.woff') format('woff'); /* Super Modern Browsers */
+    }
+
+    @font-face {
+      font-family: 'Gothamic';
+      src: url('./Gotham-Book.woff') format('woff'); /* Super Modern Browsers */
+    }
+
+    @font-face {
+      font-family: 'GothamBold';
+      src: url('./Gotham-Bold.woff') format('woff'); /* Super Modern Browsers */
     }
 
 
@@ -593,6 +615,7 @@ opacity:0;
     animation: notifIn .6s 1 ease;
     animation-fill-mode: forwards;
     animation-delay: 4s;
+    display: none;
 }
 
 @media screen and (max-width: 700px){
@@ -630,10 +653,10 @@ opacity:0;
 
   div#mc_embed_signup .text{
     font-size: 11px;
-  text-align: left;
-  margin-left: calc(25% - 49px);
-  margin-bottom:4px;
-  opacity:0;
+    text-align: left;
+    margin-left: calc(25% - 49px);
+    margin-bottom: -10px;
+    opacity: 0;
   }
 
   div#mc_embed_signup  input::placeholder {
@@ -649,13 +672,7 @@ opacity:0;
             padding-top: 2px;
           }
 
-          body h1 {
-                top: 92px;
-          }
 
-          body h2 {
-              margin-top: 32vh;
-          }
 
           .pushOnMobile {
             margin-top:24vh !important;
@@ -759,7 +776,7 @@ opacity:0;
   <form autocomplete="off" action="https://parsegon.us3.list-manage.com/subscribe/post?u=3e5cfbb64cc267c8db47d5fe9&amp;id=47d14a467c" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
       <div id="mc_embed_signup_scroll">
   <div class="mc-field-group">
-    <div class="text">WANT OUR GAME? SHOOT US YOUR EMAIL</div>
+    <div class="text">We are releasing our game very soon! Enter your email below to know about it first (and just maybe get a discount).</div>
   	<label for="mce-EMAIL">Email Address </label>
   	<input autocomplete="off" type="email" value="" name="EMAIL" placeholder="jack@dorsey.com" class="required email" id="mce-EMAIL">
     <input type="submit" value="Get Updates" name="subscribe" id="mc-embedded-subscribe" class="button">
