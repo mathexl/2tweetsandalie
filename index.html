@@ -851,17 +851,24 @@ div#mc_embed_signup.moved {
             cards.shown = false;
             cards.doubleflipOut = true;
 
+
+            if(cards.idx == 2){
+              cards.demoDone = true;
+              return;
+            }
+
             setTimeout(function(){
               if(cards.idx == 2){
                 cards.demoDone = true;
 
               } else {
                 cards.idx++;
+                cards.doubleflipIn = true;
+                cards.doubleflipOut = false;
               }
 
 
-              cards.doubleflipIn = true;
-              cards.doubleflipOut = false;
+
 
             }, 300);
           }, 2000);
