@@ -680,7 +680,7 @@ opacity:0;
 
 
           .cards {
-            padding-bottom: 15vh;
+            
           }
 }
 
@@ -740,7 +740,7 @@ opacity:0;
   <h3 v-if="!gameStart && !demoDone" v-bind:class="{'invisible' : demoDone }">Want to play a few rounds? <span>Guess which of these Tweets is false.</span></h3>
   <h3 v-if="!gameStart && demoDone" v-bind:class="{'invisible' : !demoDone }" >Alright, that's all for now kids.</h3>
 
-  <h3 v-if="gameStart" style="margin-top: 15vh;margin-bottom: 0px;" class="pushOnMobile" v-bind:class="{'invisible' : demoDone }">Choose the Lie</h3>
+  <h3 v-if="gameStart" style="margin-top: 15vh;margin-bottom: 0px;" v-bind:class="{'invisible' : demoDone }">Choose the Lie</h3>
   <h3 v-if="gameStart && isMobile() && demoDone" v-bind:class="{'invisible' : !demoDone }">That's all for now kids.
   We are releasing our game very soon! Enter your email below to know about it first (and just maybe get a discount).</h3>
 
