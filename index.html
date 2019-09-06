@@ -737,7 +737,7 @@ opacity:0;
   <h1 class="logo" >Two Tweets<br><br>& A Lie</h1>
   <a class="twitter" style="display:none;" href="https://twitter.com/TwoTweetsGame">Follow Us On Twitter</a>
   <h2 v-if="!gameStart" >A card game for people into unhinged, nutty, and mental tweets.</h2>
-  <h3 v-if="!gameStart && !demoDone" v-bind:class="{'invisible' : demoDone }">Want to play a few rounds?? <span>Guess which of these Tweets is false.</span></h3>
+  <h3 v-if="!gameStart && !demoDone" v-bind:class="{'invisible' : demoDone }">Want to play a few rounds? <span>Guess which of these Tweets is false.</span></h3>
   <h3 v-if="!gameStart && demoDone" v-bind:class="{'invisible' : !demoDone }" >Alright, that's all for now kids.</h3>
 
   <h3 v-if="gameStart" style="margin-top: 15vh;margin-bottom: 0px;" v-bind:class="{'invisible' : demoDone }">Choose the Lie</h3>
