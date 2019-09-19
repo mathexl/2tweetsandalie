@@ -1,6 +1,16 @@
 <html>
 <head>
   <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-148366608-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-148366608-1');
+</script>
+
   <link rel="https://cdn.rawgit.com/mfd/f3d96ec7f0e8f034cc22ea73b3797b59/raw/856f1dbb8d807aabceb80b6d4f94b464df461b3e/gotham.css">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="https://cdn.rawgit.com/mfd/f3d96ec7f0e8f034cc22ea73b3797b59/raw/856f1dbb8d807aabceb80b6d4f94b464df461b3e/gotham.css">
@@ -825,7 +835,7 @@ opacity:0;
       fbq('track', 'CompleteRegistration');
       console.log("HELLO THERE!");
     }
-    
+
     var cards = new Vue({
       el: "#cards",
       data: {
